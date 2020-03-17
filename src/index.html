@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C0vId19 - Report</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="ui container">
+      <div class="row">
+        <h1 class="ui header center aligned">C0vId19</h1>
+        <div class="ui two column doubling stackable grid container">
+          <div class="column">
+            <h3>CHINA</h3>
+            <p id="updateCHN"></p>
+            <ul>
+              <li id="confirmedCHN"></li>
+              <li id="recoveredCHN"></li>
+              <li id="deathsCHN"></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>ITÀLIA</h3>
+            <p id="updateIta"></p>
+            <ul>
+              <li id="confirmedIta"></li>
+              <li id="recoveredIta"></li>
+              <li id="deathsIta"></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>USA</h3>
+            <p id="updateUSA"></p>
+            <ul>
+              <li id="confirmedUSA"></li>
+              <li id="recoveredUSA"></li>
+              <li id="deathsUSA"></li>
+            </ul>
+          </div>
+
+          <div class="column">
+            <h3>CANADÁ</h3>
+            <p id="updateCA"></p>
+            <ul>
+              <li id="confirmedCA"></li>
+              <li id="recoveredCA"></li>
+              <li id="deathsCA"></li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3>BRASIL</h3>
+            <p id="update"></p>
+            <ul>
+              <li id="confirmed"></li>
+              <li id="recovered"></li>
+              <li id="deaths"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
