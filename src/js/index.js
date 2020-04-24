@@ -24,6 +24,16 @@ const listRecoveredCHN = document.getElementById('recoveredCHN');
 const listDeathsCHN = document.getElementById('deathsCHN');
 const updateCHN = document.getElementById('updateCHN');
 
+const listConfirmedDE = document.getElementById('confirmedDE');
+const listRecoveredDE = document.getElementById('recoveredDE');
+const listDeathsDE = document.getElementById('deathsDE');
+const updateDE = document.getElementById('updateDE');
+
+const listConfirmedGB = document.getElementById('confirmedGB');
+const listRecoveredGB = document.getElementById('recoveredGB');
+const listDeathsGB = document.getElementById('deathsGB');
+const updateGB = document.getElementById('updateGB');
+
 let dataUpdate = '';
 const urlAPI = 'https://covid19.mathdro.id';
 
@@ -31,39 +41,39 @@ const endPoint = [
   {
     id: 1,
     pointer: '/api/confirmed',
-    description: 'global cases per region sorted by confirmed cases'
+    description: 'global cases per region sorted by confirmed cases',
   },
   {
     id: 2,
     pointer: '/api/recovered',
-    description: 'global cases per region sorted by recovered cases'
+    description: 'global cases per region sorted by recovered cases',
   },
   {
     id: 3,
     pointer: '/api/deaths',
-    description: 'global cases per region sorted by death toll'
+    description: 'global cases per region sorted by death toll',
   },
   {
     id: 4,
     pointer: '/api/countries/',
     description:
-      'a [country] summary (e.g. /api/countries/Indonesia or /api/countries/USA or /api/countries/CN)'
+      'a [country] summary (e.g. /api/countries/Indonesia or /api/countries/USA or /api/countries/CN)',
   },
   {
     id: 5,
     pointer: '/api/daily/',
-    description: 'global cases per day'
-  }
+    description: 'global cases per day',
+  },
 ];
 
 function run() {
   axios
     .get(urlAPI + endPoint[3].pointer + 'BRA')
-    .then(res => {
+    .then((res) => {
       const result = res.data;
       return result;
     })
-    .then(value => {
+    .then((value) => {
       dataUpdate = value.lastUpdate;
       update.innerText = 'Última atualização ' + dataUpdate;
       listConfirmed.innerText = 'Casos confirmados: ' + value.confirmed.value;
@@ -71,7 +81,7 @@ function run() {
         'Pacientes recuperados: ' + value.recovered.value;
       listDeaths.innerText = 'Óbitos confirmados: ' + value.deaths.value;
 
-      axios.get(urlAPI + endPoint[3].pointer + 'USA').then(res => {
+      axios.get(urlAPI + endPoint[3].pointer + 'USA').then((res) => {
         const result = res.data;
         dataUpdateUSA = result.lastUpdate;
         updateUSA.innerText = 'Última atualização ' + dataUpdateUSA;
@@ -82,7 +92,7 @@ function run() {
         listDeathsUSA.innerText = 'Óbitos confirmados: ' + result.deaths.value;
       });
 
-      axios.get(urlAPI + endPoint[3].pointer + 'ITA').then(res => {
+      axios.get(urlAPI + endPoint[3].pointer + 'ITA').then((res) => {
         const result = res.data;
         dataUpdateIta = result.lastUpdate;
         updateIta.innerText = 'Última atualização ' + dataUpdateIta;
@@ -93,7 +103,7 @@ function run() {
         listDeathsIta.innerText = 'Óbitos confirmados: ' + result.deaths.value;
       });
 
-      axios.get(urlAPI + endPoint[3].pointer + 'CA').then(res => {
+      axios.get(urlAPI + endPoint[3].pointer + 'CA').then((res) => {
         const result = res.data;
         dataUpdateCA = result.lastUpdate;
         updateCA.innerText = 'Última atualização ' + dataUpdateCA;
@@ -104,7 +114,7 @@ function run() {
         listDeathsCA.innerText = 'Óbitos confirmados: ' + result.deaths.value;
       });
 
-      axios.get(urlAPI + endPoint[3].pointer + 'CHN').then(res => {
+      axios.get(urlAPI + endPoint[3].pointer + 'CHN').then((res) => {
         const result = res.data;
         dataUpdateCHN = result.lastUpdate;
         updateCHN.innerText = 'Última atualização ' + dataUpdateCHN;
@@ -113,6 +123,28 @@ function run() {
         listRecoveredCHN.innerText =
           'Pacientes recuperados: ' + result.recovered.value;
         listDeathsCHN.innerText = 'Óbitos confirmados: ' + result.deaths.value;
+      });
+
+      axios.get(urlAPI + endPoint[3].pointer + 'DE').then((res) => {
+        const result = res.data;
+        dataUpdateDE = result.lastUpdate;
+        updateDE.innerText = 'Última atualização ' + dataUpdateDE;
+        listConfirmedDE.innerText =
+          'Casos confirmados: ' + result.confirmed.value;
+        listRecoveredDE.innerText =
+          'Pacientes recuperados: ' + result.recovered.value;
+        listDeathsDE.innerText = 'Óbitos confirmados: ' + result.deaths.value;
+      });
+
+      axios.get(urlAPI + endPoint[3].pointer + 'GB').then((res) => {
+        const result = res.data;
+        dataUpdateGB = result.lastUpdate;
+        updateGB.innerText = 'Última atualização ' + dataUpdateGB;
+        listConfirmedGB.innerText =
+          'Casos confirmados: ' + result.confirmed.value;
+        listRecoveredGB.innerText =
+          'Pacientes recuperados: ' + result.recovered.value;
+        listDeathsGB.innerText = 'Óbitos confirmados: ' + result.deaths.value;
       });
     });
 }
